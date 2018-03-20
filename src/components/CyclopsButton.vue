@@ -9,7 +9,7 @@ var sizes = ['lg', 'sm', 'mini']
 
 export default {
   name: 'cyclops-button',
-  props: [...types, ...sizes],
+  props: [...types, ...sizes, 'block', 'icon'],
   computed: {
       cssClass(){
           console.log(this.$props)
@@ -18,8 +18,9 @@ export default {
           return "btn" 
                     + (color ? " btn-" + color : "")
                     + (size ? " btn-" + size : "")
+                    + (this.block != undefined ? " btn-block" : "")
+                    + (this.icon != undefined ? " btn-icon" : "")
       }
   }
 }
 </script>
-

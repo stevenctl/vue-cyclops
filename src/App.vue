@@ -1,20 +1,51 @@
 <template>
-  <div id="app">
-    <cyclops-button @click="onClickThing()" danger>test</cyclops-button>
+<div id="app">
+  <div class="container-fluid">
+      <div class="card col-md-8 col-md-offset-2">
+        <div class="card-block">
+          <h4 class="card-title">Buttons</h4>
+
+          <cyclops-button @click="alert('Creating a thing!')" primary>
+            <cyclops-icon icon="icon-plus"/> Create
+          </cyclops-button>
+
+          <cyclops-button @click="alert('Deleting a thing!')" danger>
+            <cyclops-icon icon="icon-trash"/> Delete
+          </cyclops-button>
+
+          <cyclops-button @click="alert('This is an icon button')" warning icon>
+            <cyclops-icon icon="icon-times"/>
+          </cyclops-button>
+
+          <cyclops-button @click="alert('This is a \'sm\' button')" default sm>
+            Button
+          </cyclops-button>
+
+        </div>
+        <div class="card-block">
+          <h4 class="card-title">Lists</h4>
+
+          
+
+        </div>
+      </div>
   </div>
+</div>
 </template>
 
 <script>
 import CyclopsButton from './components/CyclopsButton'
+import CyclopsIcon from './components/CyclopsIcon'
 
 export default {
   name: 'app',
   components: {
-    'cyclops-button': CyclopsButton
+    'cyclops-button': CyclopsButton,
+    'cyclops-icon': CyclopsIcon
   },
   methods: {
-    onClickThing(){
-      alert('hello')
+    alert(msg){
+      alert(msg)
     }
   }
 }
