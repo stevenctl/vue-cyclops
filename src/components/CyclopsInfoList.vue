@@ -1,9 +1,10 @@
 <template>
   <ul class="list-info">
-    <li v-for="(value, name, i) in items" :key="i" v-if="items && items.length > 0">
-      <div class="info-label">{{name}}</div>
-      <div class="info-value">{{value}}</div>
+    <li v-for="(infoVal, infoName, i) in items" :key="i">
+      <div class="info-label">{{infoName}}</div>
+      <div class="info-value">{{infoVal}}</div>
     </li>
+    <slot></slot>
   </ul>
 </template>
 

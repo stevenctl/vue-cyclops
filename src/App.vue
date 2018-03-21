@@ -55,6 +55,7 @@
             </div>
           </div>
           <div class="row">
+            <h5 class="card-subtitle">Info List</h5>
             <div class="col col-md-12">
               <cyclops-info-list :items="person"/>
             </div>
