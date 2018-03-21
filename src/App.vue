@@ -40,22 +40,25 @@
             </div>
             <div class="col col-md-2">
               <h5 class="card-subtitle">Inline List</h5>
-              <cyclops-list :items="listSample" inline/>
+              <cyclops-list :items="['Item A', 'Item B', 'Item C']" inline/>
             </div>
              <div class="col col-md-2">
               <h5 class="card-subtitle">Unstyled List</h5>
               <cyclops-list unstyled>
                 <li>Item A</li>
                 <ul>
-                  Item B
+                  <li>Item B1</li>
+                  <li>Item B2</li>
                 </ul>
                 <li>Item C</li>
               </cyclops-list>
             </div>
           </div>
-
-          
-
+          <div class="row">
+            <div class="col col-md-12">
+              <cyclops-info-list :items="person"/>
+            </div>
+          </div>
         </div>
       </div>
   </div>
@@ -66,9 +69,11 @@
 import CyclopsButton from './components/CyclopsButton'
 import CyclopsIcon from './components/CyclopsIcon'
 import CyclopsList from './components/CyclopsList'
+import CyclopsInfoList from './components/CyclopsInfoList'
 
 var data = {
-  listSample: ['Item A', 'Item B', 'Item C']
+  listSample: ['Item A', ['Item B 1','Item B 2'], 'Item C', 'Item D'],
+  person: {name: 'John Doe', age: 23, profession: 'Engineer'}
 }
 
 export default {
@@ -76,7 +81,9 @@ export default {
   components: {
     'cyclops-button': CyclopsButton,
     'cyclops-icon': CyclopsIcon,
-    'cyclops-list': CyclopsList
+    'cyclops-list': CyclopsList,
+    'cyclops-info-list': CyclopsInfoList
+
   },
   data: () => data,
   methods: {
