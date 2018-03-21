@@ -32,7 +32,6 @@ export default {
   },
   computed: {
       cssClass(){
-          console.log(this.$props)
           var color = types.find((t) => this.$props[t] != undefined)
           var size = sizes.find((t) => this.$props[t] != undefined)
           return "btn" 

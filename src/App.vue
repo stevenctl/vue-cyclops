@@ -1,7 +1,7 @@
 <template>
 <div id="app">
   <div class="container-fluid">
-      <div class="card col-md-8 col-md-offset-2">
+      <div class="card col-md-10 col-md-offset-1">
         <div class="card-block">
           <h4 class="card-title">Buttons</h4>
           
@@ -26,19 +26,35 @@
           <h4 class="card-title">Lists</h4>
 
           <div class="row">
-            <div class="col col-md-3">
+            <div class="col col-md-2">
               <h5 class="card-subtitle">Unordered List</h5>
-              <ul>
-                <li v-for="n in [1,2,3]" :key="n">item {{n}}</li>
-              </ul>
+              <cyclops-list :items="listSample" unordered/>
             </div>
-            <div class="col col-md-3">
+            <div class="col col-md-2">
               <h5 class="card-subtitle">Ordered List</h5>
-              <ol>
-                <li v-for="n in [1,2,3]" :key="n">item {{n}}</li>
-              </ol>
+              <cyclops-list :items="listSample" ordered/>
+            </div>
+            <div class="col col-md-2">
+              <h5 class="card-subtitle">Comma List</h5>
+              <cyclops-list :items="listSample" comma/>
+            </div>
+            <div class="col col-md-2">
+              <h5 class="card-subtitle">Inline List</h5>
+              <cyclops-list :items="listSample" inline/>
+            </div>
+             <div class="col col-md-2">
+              <h5 class="card-subtitle">Unstyled List</h5>
+              <cyclops-list unstyled>
+                <li>Item A</li>
+                <ul>
+                  Item B
+                </ul>
+                <li>Item C</li>
+              </cyclops-list>
             </div>
           </div>
+
+          
 
         </div>
       </div>
@@ -49,13 +65,20 @@
 <script>
 import CyclopsButton from './components/CyclopsButton'
 import CyclopsIcon from './components/CyclopsIcon'
+import CyclopsList from './components/CyclopsList'
+
+var data = {
+  listSample: ['Item A', 'Item B', 'Item C']
+}
 
 export default {
   name: 'app',
   components: {
     'cyclops-button': CyclopsButton,
-    'cyclops-icon': CyclopsIcon
+    'cyclops-icon': CyclopsIcon,
+    'cyclops-list': CyclopsList
   },
+  data: () => data,
   methods: {
     alert(msg){
       alert(msg)
