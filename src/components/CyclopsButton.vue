@@ -1,5 +1,15 @@
 <template>
-  <button @click="$emit('click')" :class="cssClass"><slot></slot></button>
+  <button 
+    @click="doOnClick()"
+    :class="cssClass"
+    v-if="!showConfirm">
+     <slot></slot>
+  </button>
+  <div v-else class="confirmation-container" style="float: none; opacity: 1;">
+    <span class="message">Are you sure?</span>
+    <button @click="showConfirm=false" class="btn btn-default no">NO</button>
+    <button @click="showConfirm=false; $emit('click')" class="yes btn btn-danger">YES</button>
+  </div>
 </template>
 
 <script>
@@ -9,7 +19,17 @@ var sizes = ['lg', 'sm', 'mini']
 
 export default {
   name: 'cyclops-button',
-  props: [...types, ...sizes, 'block', 'icon'],
+  props: [...types, ...sizes, 'block', 'icon', 'confirm'],
+  data:() => {return { showConfirm: false }},
+  methods: {
+      doOnClick(){
+        if(this.$props.confirm != undefined) {
+          this.$data.showConfirm = true;
+        } else {
+          this.$emit('click');
+        }
+      }
+  },
   computed: {
       cssClass(){
           console.log(this.$props)
