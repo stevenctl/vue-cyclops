@@ -61,6 +61,13 @@
             </div>
           </div>
         </div>
+        <div class="card-block">
+          <h4 class="card-title">List View</h4>
+          <cyclops-list-view 
+            :titles="['Ticket #', 'Requester', 'Title']"
+            :items="[['123', 'Joe', 'It Broke...'],['456', 'Dave'],['789', 'Mary', 'Password Reset']]"
+          />
+        </div>
       </div>
   </div>
 </div>
@@ -71,6 +78,7 @@ import CyclopsButton from './components/CyclopsButton'
 import CyclopsIcon from './components/CyclopsIcon'
 import CyclopsList from './components/CyclopsList'
 import CyclopsInfoList from './components/CyclopsInfoList'
+import CyclopsListView from './components/CyclopsListView'
 
 var data = {
   listSample: ['Item A', ['Item B 1','Item B 2'], 'Item C', 'Item D'],
@@ -83,7 +91,8 @@ export default {
     'cyclops-button': CyclopsButton,
     'cyclops-icon': CyclopsIcon,
     'cyclops-list': CyclopsList,
-    'cyclops-info-list': CyclopsInfoList
+    'cyclops-info-list': CyclopsInfoList,
+    'cyclops-list-view': CyclopsListView
 
   },
   data: () => data,
