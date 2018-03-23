@@ -5,14 +5,20 @@
     v-if="!showConfirm">
      <slot></slot>
   </button>
-  <div v-else class="confirmation-container" style="float: none; opacity: 1;">
-    <span class="message">Are you sure?</span>
-    <button @click="showConfirm=false" class="btn btn-default no">NO</button>
-    <button @click="showConfirm=false; $emit('click')" class="yes btn btn-danger">YES</button>
-  </div>
+  <cyclops-modal v-else>
+    <h3 slot="header">Are you sure?</h3>
+    <div slot="body"></div>
+    <div slot="footer">
+      <button @click="showConfirm=false" class="btn btn-default no">NO</button>
+      <button @click="showConfirm=false; $emit('click')" class="yes btn btn-danger">YES</button>
+    </div>
+  </cyclops-modal>
 </template>
 
 <script>
+import CyclopsModal from './CyclopsModal'
+
+
 var types = ['default', 'primary', 'warning', 'danger', 'inverse', 'outline', 'link']
 var sizes = ['lg', 'sm', 'mini']
 
@@ -20,6 +26,9 @@ var sizes = ['lg', 'sm', 'mini']
 export default {
   name: 'cyclops-button',
   props: [...types, ...sizes, 'block', 'icon', 'confirm'],
+  components: {
+    'cyclops-modal': CyclopsModal
+  },
   data:() => {return { showConfirm: false }},
   methods: {
       doOnClick(){
