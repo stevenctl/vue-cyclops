@@ -6,7 +6,7 @@ import CyclopsListView from './CyclopsListView'
 import CyclopsModal from './CyclopsModal'
 import CyclopsTabNav from './CyclopsTabNav'
 
-module.exports = {
+export default {
     CyclopsButton,
     CyclopsIcon,
     CyclopsInfoList,
