@@ -4,7 +4,7 @@
     <div v-for="(header, i) in headers" :key="i" :class="colCss">{{header}}</div>
   </div>
   <ul class="new-list-view">
-    <li v-for="(item, i) in items" :key="i">
+    <li v-for="(item, i) in items" :key="i" @click="$emit('itemClicked', item)">
       <div class="list-view-item">
         <div v-for="(datum, j) in item" :key="j" :class="colCss">{{datum}}</div>
       </div>
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: 'cyclops-list-view',
-  props: ['titles', 'items'],
+  props: ['titles', 'items', 'onClickItem'],
   computed: {
     colCss(){
       var pct = Math.floor(100 / Math.max(...[this.headers || [], ...this.items].map((i) => Object.keys(i).length)));
