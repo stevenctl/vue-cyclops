@@ -67,6 +67,14 @@
             :titles="['Ticket #', 'Requester', 'Title']"
             :items="[['123', 'Joe', 'It Broke...'],['456', 'Dave'],['789', 'Mary', 'Password Reset']]"
           />
+          <cyclops-list-view 
+            :titles="['Ticket #', 'Requester', 'Title']"
+            :items="[['abc', 'def', 'ghi'],['abc2', 'def2', 'ghi2']]"
+          />
+          <cyclops-list-view 
+            :titles="['name']"
+            :items="[{name: 'stove', age: 19}, {name: 'jawed', age: 25}]"
+          />
         </div>
       </div>
   </div>
