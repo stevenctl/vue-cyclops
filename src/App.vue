@@ -72,7 +72,8 @@
             :items="[['abc', 'def', 'ghi'],['abc2', 'def2', 'ghi2']]"
           />
           <cyclops-list-view 
-            :titles="['name']"
+            :titles="['name', 'age']"
+            :sizes="[90,10]"
             :items="[{name: 'stove', age: 19}, {name: 'jawed', age: 25}]"
           />
         </div>
