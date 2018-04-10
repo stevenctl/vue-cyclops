@@ -1,84 +1,13 @@
 <template>
 <div id="app">
-  <div class="container-fluid">
-      <div class="card col-md-10 col-md-offset-1">
-        <div class="card-block">
-          <h4 class="card-title">Buttons</h4>
-          
-          <cyclops-button @click="alert('Creating a thing!')" primary>
-            <cyclops-icon icon="icon-plus"/> Create
-          </cyclops-button>
-          
-          <cyclops-button @click="alert('Deleting a thing!')" danger confirm>
-            <cyclops-icon icon="icon-trash"/> Delete
-          </cyclops-button>
-
-          <cyclops-button @click="alert('This is an icon button')" warning icon>
-            <cyclops-icon icon="icon-times"/>
-          </cyclops-button>
-
-          <cyclops-button @click="alert('This is a \'sm\' button')" default sm>
-            Button
-          </cyclops-button>
-
-        </div>
-        <div class="card-block">
-          <h4 class="card-title">Lists</h4>
-
-          <div class="row">
-            <div class="col col-md-2">
-              <h5 class="card-subtitle">Unordered List</h5>
-              <cyclops-list :items="listSample" unordered/>
-            </div>
-            <div class="col col-md-2">
-              <h5 class="card-subtitle">Ordered List</h5>
-              <cyclops-list :items="listSample" ordered/>
-            </div>
-            <div class="col col-md-2">
-              <h5 class="card-subtitle">Comma List</h5>
-              <cyclops-list :items="listSample" comma/>
-            </div>
-            <div class="col col-md-2">
-              <h5 class="card-subtitle">Inline List</h5>
-              <cyclops-list :items="['Item A', 'Item B', 'Item C']" inline/>
-            </div>
-             <div class="col col-md-2">
-              <h5 class="card-subtitle">Unstyled List</h5>
-              <cyclops-list unstyled>
-                <li>Item A</li>
-                <ul>
-                  <li>Item B1</li>
-                  <li>Item B2</li>
-                </ul>
-                <li>Item C</li>
-              </cyclops-list>
-            </div>
-          </div>
-          <div class="row">
-            <h5 class="card-subtitle">Info List</h5>
-            <div class="col col-md-12">
-              <cyclops-info-list :items="person"/>
-            </div>
-          </div>
-        </div>
-        <div class="card-block">
-          <h4 class="card-title">List View</h4>
-          <cyclops-list-view 
-            :titles="['Ticket #', 'Requester', 'Title']"
-            :items="[['123', 'Joe', 'It Broke...'],['456', 'Dave'],['789', 'Mary', 'Password Reset']]"
-          />
-          <cyclops-list-view 
-            :titles="['Ticket #', 'Requester', 'Title']"
-            :items="[['abc', 'def', 'ghi'],['abc2', 'def2', 'ghi2']]"
-          />
-          <cyclops-list-view 
-            :titles="['name', 'age']"
-            :sizes="[90,10]"
-            :items="[{name: 'stove', age: 19}, {name: 'jawed', age: 25}]"
-          />
-        </div>
-      </div>
-  </div>
+  <cyclops-tab-nav :titles="['Abc', 'Def']">
+    <div slot='Abc'>
+      a;ldfja;lkdfj
+    </div>
+    <div slot='Def'>
+      adfjfjadfj
+    </div>
+  </cyclops-tab-nav>
 </div>
 </template>
 
@@ -88,6 +17,7 @@ import CyclopsIcon from './components/CyclopsIcon'
 import CyclopsList from './components/CyclopsList'
 import CyclopsInfoList from './components/CyclopsInfoList'
 import CyclopsListView from './components/CyclopsListView'
+import CyclopsTabNav from './components/CyclopsTabNav.vue';
 
 var data = {
   listSample: ['Item A', ['Item B 1','Item B 2'], 'Item C', 'Item D'],
@@ -101,7 +31,8 @@ export default {
     'cyclops-icon': CyclopsIcon,
     'cyclops-list': CyclopsList,
     'cyclops-info-list': CyclopsInfoList,
-    'cyclops-list-view': CyclopsListView
+    'cyclops-list-view': CyclopsListView,
+    'cyclops-tab-nav': CyclopsTabNav
 
   },
   data: () => data,

@@ -4,12 +4,14 @@
       <li 
         v-for="(title, i) in titles" 
         :class="active == title && 'active'"
-        :key="i"
+        :key="`${title}-${i}`"
         @click="active = title">
         <a>{{title}}</a>
       </li>
     </ul>
-    <slot :name="active"></slot>
+    <span v-for="(title, i) in titles" v-if="title == active" :key="`slot-${title}-${i}`">
+      <slot :name="title"></slot>
+    </span>
   </div>
 </template>
 

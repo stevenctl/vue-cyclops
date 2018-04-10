@@ -1,6 +1,6 @@
 {
   "name": "vue-cyclops",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A wrapper for CenturyLink Cyclops UI Framework in Vue.js",
   "author": "slandow <steven.landow@ctl.io>",
   "main": "dist/lib/vue-cyclops.min.js",
