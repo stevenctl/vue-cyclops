@@ -1,10 +1,10 @@
 <template>
   <div class="dropdown">
-    <button type="button" @click="showDropdown = true" class="btn btn-default">
-      {{optionText(selectedOption)}}
+    <button type="button" class="btn btn-default">
+      {{optionText(this.value)}}
       <cyclops-icon icon="icon-caret-down"></cyclops-icon>
     </button>
-    <ul :style="showDropdown && 'display: block'" class="dropdown-menu">
+    <ul class="dropdown-menu">
       <li v-for="option in options" @click="selectOption(option)">
         <a>{{optionText(option)}}</a>
       </li>
@@ -18,20 +18,10 @@ export default {
   components: {CyclopsIcon},
   name: "dropdown-button",
   props: ['options', 'value'],
-  beforeMount(){
-    this.selectedOption = this.value
-  },
-  data(){
-    return {
-      selectedOption: null,
-      showDropdown: false
-    }
-  },
   methods: {
     selectOption(option){
-      this.selectedOption = option;
       this.showDropdown = false;
-      this.$emit('input', this.selectedOption);
+      this.$emit('input', option);
     },
     optionText(option){
       return (option["label"] || option)
