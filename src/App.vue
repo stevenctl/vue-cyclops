@@ -1,28 +1,30 @@
 <template>
 <div id="app">
-  <cyclops-tab-nav :titles="['Abc', 'Def']">
-    <div slot='Abc'>
-      a;ldfja;lkdfj
-    </div>
-    <div slot='Def'>
-      adfjfjadfj
-    </div>
-  </cyclops-tab-nav>
+  <cyclops-dropdown-button
+    v-model="selectedDc"
+    :options="datacenters">
+  </cyclops-dropdown-button>
 </div>
 </template>
 
 <script>
-import CyclopsButton from './components/CyclopsButton'
-import CyclopsIcon from './components/CyclopsIcon'
-import CyclopsList from './components/CyclopsList'
-import CyclopsInfoList from './components/CyclopsInfoList'
-import CyclopsListView from './components/CyclopsListView'
-import CyclopsTabNav from './components/CyclopsTabNav.vue';
+import {CyclopsButton,
+CyclopsIcon,
+CyclopsList,
+CyclopsInfoList,
+CyclopsListView,
+CyclopsDropdownButton,
+CyclopsTabNav} from './components/index.js';
 
 var data = {
   listSample: ['Item A', ['Item B 1','Item B 2'], 'Item C', 'Item D'],
-  person: {name: 'John Doe', age: 23, profession: 'Engineer'}
-}
+  person: {name: 'John Doe', age: 23, profession: 'Engineer'},
+  datacenters: [
+    {label: 'DC1 (place)', value: 'dc1'},
+    {label: 'DC2 (other)', value: 'dc2'}
+  ],
+  selectedDc: {label: 'DC1 (place)', value: 'dc1'}
+};
 
 export default {
   name: 'app',
@@ -32,8 +34,8 @@ export default {
     'cyclops-list': CyclopsList,
     'cyclops-info-list': CyclopsInfoList,
     'cyclops-list-view': CyclopsListView,
-    'cyclops-tab-nav': CyclopsTabNav
-
+    'cyclops-tab-nav': CyclopsTabNav,
+    'cyclops-dropdown-button': CyclopsDropdownButton
   },
   data: () => data,
   methods: {

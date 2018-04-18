@@ -1,3 +1,2 @@
-import vueCyclops from './components'
 
-export default vueCyclops
+export * from './components'
