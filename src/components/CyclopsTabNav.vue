@@ -9,8 +9,8 @@
         <a>{{title}}</a>
       </li>
     </ul>
-    <span v-for="(title, i) in titles" v-if="title == active" :key="`slot-${title}-${i}`">
-      <slot :name="title"></slot>
+    <span v-for="(title, i) in titles" :key="'slot-' + i + '-' + title" :style="active !== title && 'display: none;'">
+      <slot :name="title"/>
     </span>
   </div>
 </template>

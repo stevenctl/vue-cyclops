@@ -18,6 +18,9 @@ export default {
   components: {CyclopsIcon},
   name: "dropdown-button",
   props: ['options', 'value'],
+  updated(){
+    $('.dropdown').dropdown();
+  },
   methods: {
     selectOption(option){
       this.showDropdown = false;
