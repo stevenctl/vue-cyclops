@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-  <cyclops-tab-nav :titles="['abc', 'def']">
+  <cyclops-tab-nav @tabSelected="alert" :titles="['abc', 'def']">
       <div slot="abc">
         <stateful-comp/>
         abc

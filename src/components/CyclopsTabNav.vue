@@ -5,7 +5,7 @@
         v-for="(title, i) in titles" 
         :class="active == title && 'active'"
         :key="`${title}-${i}`"
-        @click="active = title">
+        @click="selectTab(title)">
         <a>{{title}}</a>
       </li>
     </ul>
@@ -22,6 +22,12 @@ export default {
   data(){
     return {
       active: this.titles[0]
+    }
+  },
+  methods: {
+    selectTab(title){
+      this.active = title
+      this.$emit('tabSelected', title)
     }
   }
 }
