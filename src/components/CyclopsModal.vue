@@ -3,7 +3,6 @@
     <div class="modal-mask">
       <div class="modal-wrapper">
         <div class="modal-container card card-block">
-
           <div class="modal-header">
             <slot name="header">
               Header
@@ -19,9 +18,9 @@
           <div class="modal-footer">
             <slot name="footer">
               default footer
-              <cyclops-button @click="$emit('close')">
+              <button class="btn btn-default" @click="$emit('close')">
                 OK
-              </cyclops-button>
+              </button>
             </slot>
           </div>
         </div>
@@ -30,13 +29,9 @@
   </transition>
 </template>
 <script>
-import CyclopsButton from './CyclopsButton';
 
 export default {
-  name: 'cyclops-modal',
-  components: {
-      'cyclops-button': CyclopsButton
-  }
+  name: 'cyclops-modal'
 }
 </script>
 
