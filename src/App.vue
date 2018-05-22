@@ -2,11 +2,9 @@
 <div id="app">
   <cyclops-tab-nav @tabSelected="alert" :titles="['abc', 'def']">
       <div slot="abc">
-        <stateful-comp/>
         abc
       </div>
       <div slot="def">
-        <stateful-comp/>
         def
       </div>
   </cyclops-tab-nav>
@@ -21,7 +19,6 @@ CyclopsInfoList,
 CyclopsListView,
 CyclopsDropdownButton,
 CyclopsTabNav} from './components/index.js';
-import StatefulComp from './StatefulComp.vue'
 
 var data = {
   listSample: ['Item A', ['Item B 1','Item B 2'], 'Item C', 'Item D'],
@@ -42,8 +39,7 @@ export default {
     'cyclops-info-list': CyclopsInfoList,
     'cyclops-list-view': CyclopsListView,
     'cyclops-tab-nav': CyclopsTabNav,
-    'cyclops-dropdown-button': CyclopsDropdownButton,
-    'stateful-comp': StatefulComp
+    'cyclops-dropdown-button': CyclopsDropdownButton
   },
   data: () => data,
   methods: {
